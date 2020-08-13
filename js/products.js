@@ -1,6 +1,6 @@
-var categoriesArray = [];
+var productsArray = [];
 showSpinner();
-function showCategoriesList(array){
+function showProductsList(array){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            categoriesArray = resultObj.data;
+            productsArray = resultObj.data;
             //Muestro las categorías ordenadas
-            showCategoriesList(categoriesArray);
+            showProductsList(productsArray);
         }
     });
 });
