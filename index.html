@@ -13,9 +13,6 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
    <link href="css/login.css" rel="stylesheet">
-  <script>function loginRedirect(){
-    window.location.href("login.html");
-    }</script>
     <!--autenticacion de google-->
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="799940001645-5e5rjnkhcqc09j2k11s1gmv6gp5mdueq.apps.googleusercontent.com">
@@ -30,6 +27,11 @@
       <i class="fa fa-lock fa-stack-1x"></i>
     </span>
   </p>
+
+  <script>function loginRedirect(){
+    return window.location.href("login.html");
+    }</script>
+
   <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
   <input type="password" class="login-password" required="true" placeholder="Password" />
   <input type="button" name="Login" value="Login" class="login-submit" onclick="loginRedirect();"/>
