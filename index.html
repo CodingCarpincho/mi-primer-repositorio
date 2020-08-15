@@ -12,19 +12,10 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-   <link href="css/login.css" rel="stylesheet">
-
-    <!--autenticacion de google-->
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="799940001645-5e5rjnkhcqc09j2k11s1gmv6gp5mdueq.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-    <script>
-      function onSign(googleUser) {
-        //var profile= googleUser.getBasicProfile();
-
-      }
-    </script>
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+  <!--metadata de login de Google-->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="799940001645-5e5rjnkhcqc09j2k11s1gmv6gp5mdueq.apps.googleusercontent.com">
     <!---->
 </head>
 <body>
@@ -36,15 +27,15 @@
             <input type="text" id="user" name="" placeholder="Ingresar Usuario">
             <p>Contraseña</p>
             <input type="password" id="pass" name="" placeholder="Ingresar Contraseña">
-            <button type="button" onclick="guardarLogin(user.value, pass.value);">
+            <button type="button" class="button" onclick="guardarLogin(user.value, pass.value);">
               Login </button></br>
+            <!--boton de sign in de google-->
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <!---->
             <a href="#">Perdiste tu contraseña?</a></br>
             <a href="#">No tienes una cuenta?</a>
         </form>
     </div>
-<!--boton de login de google con funcion-->
-<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-<!--fin de boton de inicio de google-->
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
