@@ -12,6 +12,9 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <!--script de google para que el sign out funcione-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -21,12 +24,12 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <a href="#" onclick="signOut();">Sign out</a> <!--boton sign out-->
       </div>
     </nav>
     <main role="main">
       <section class="jumbotron text-center">
         <div class="m-5">
-          <a href="#" onclick="signOut();">Sign out</a>
           <h1></h1>
         </div>
       </section>
