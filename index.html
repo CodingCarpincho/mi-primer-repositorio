@@ -13,51 +13,39 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
    <link href="css/login.css" rel="stylesheet">
+
     <!--autenticacion de google-->
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="799940001645-5e5rjnkhcqc09j2k11s1gmv6gp5mdueq.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script>
+      function onSign(googleUser) {
+        var profile= googleUser.getBasicProfile();
+
+        window.location.replace = "main.html"
+      }
+    </script>
     <!---->
 </head>
 <body>
-<div class="login-form" >
-  <p class="login-text">
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-lock fa-stack-1x"></i>
-    </span>
-  </p>
-
-  <script>function loginRedirect(){
-    return window.location.href("login.html");
-    }</script>
-
-  <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
-  <input type="password" class="login-password" required="true" placeholder="Password" />
-  <input type="button" name="Login" value="Login" class="login-submit" onclick="loginRedirect();"/>
-</div>
+  <div class="loginbox">
+    <img src="img/login-avatar.png" class="avatar">
+        <h1>Ingresar Aqui</h1>
+        <form>
+            <p>Usuario</p>
+            <input type="text" id="user" name="" placeholder="Ingresar Usuario">
+            <p>Contraseña</p>
+            <input type="password" id="pass" name="" placeholder="Ingresar Contraseña">
+            <button type="button" onclick="guardarLogin(user.value, pass.value);">
+              Ingresar </button></br>
+            <a href="#">Perdiste tu contraseña?</a></br>
+            <a href="#">No tienes una cuenta?</a>
+        </form>
+    </div>
 <!--boton de login de google con funcion-->
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
 <!--fin de boton de inicio de google-->
-<a href="#" class="login-forgot-pass">forgot password?</a>
-<div class="underlay-photo"></div>
-<div class="underlay-black"></div> 
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
