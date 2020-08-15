@@ -22,6 +22,6 @@ function onSignIn(googleUser) {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
-      location.href="index.html";
+      document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://codingcarpicho.github.io/mi-primer-repositorio/index.html";
     });
   }
