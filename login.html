@@ -23,6 +23,13 @@
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       </div>
     </nav>
+    <script>
+      function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        alert( "Usuario desconectado");
+      })};
+    </script>
     <main role="main">
       <section class="jumbotron text-center">
         <div class="m-5">
