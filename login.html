@@ -24,10 +24,16 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a href="#" onclick="signOut();">Sign out</a> <!--boton sign out-->
+        <!--inicio del campo que muestra el nombre de usuario y boton para desloguear-->
+        <a class="py-2 d-none d-md-inline-block" id="user" style="color:white;"></a>
+        <button id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a></button> <!--boton sign out-->
       </div>
     </nav>
+<script>
+var user = localStorage.getItem("user");
+document.getElementById('user').innerHTML=user;
+</script>
+<!--final del campo, esto está en cada pagina a falta de conocimientos para una mejor implementacion-->
     <main role="main">
       <section class="jumbotron text-center">
         <div class="m-5">
