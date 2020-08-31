@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         minCount = undefined;
         maxCount = undefined;
 
-        showCategoriesList();
+        showProductsList();
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -137,3 +137,61 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 });
+
+var newList = [];
+
+function verification(){
+    var written = document.getElementById("searcher").value;
+      var newList = productsArray.filter(function(product){
+          return product.name.toLowerCase().includes(written.toLowerCase());
+      }
+      );
+      showProductsList(newList);
+};
+
+var getJSONData = function(url){
+    var result = {};
+    showSpinner();
+    return fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }else{
+        throw Error(response.statusText);
+      }
+    })
+    .then(function(response) {
+          result.status = 'ok';
+          result.data = response;
+          hideSpinner();
+          return result;
+    })
+    .catch(function(error) {
+        result.status = 'error';
+        result.data = error;
+        hideSpinner();
+        return result;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            newList = resultObj.data;
+        }
+    });
+});
+
+function showList(list){
+    let htmlContentToAppend = "";
+    for(let i = 0; i < list.length; i++){
+        let product = list[i];
+
+        htmlContentToAppend +=`
+        <li> ID:`+product.id + ` <strong> ` + list.product + `</strong> Producto:` + product.name +`</li>
+        `
+
+        document.getElementById("list").innerHTML = htmlContentToAppend;
+    }
+}
+document.getElementById("searcher").addEventListener("keyup", verification);
