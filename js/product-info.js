@@ -47,21 +47,22 @@ document.addEventListener("DOMContentLoaded", function(e){
       getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(result){
         if (result.status === "ok"){
           comms = result.data;
-          var comments = " ";
+          var comments = "";
             for(i = 0; i < comms.length; i++){
             var points = "";
-            for(y = 1; y <= 5; y++) {
+            for(y = 0; y <= 5; y++) {
               if (y <= comms[i].score) {
-                points += `<span class = "fas fa-star checked ></span>`;
+                points += `<span class = "fas fa-star checked > </span>`;
               } else {
                 points += `<span class = "fas fa-star> </span>`;
               }
             }
-            comments += `<div> 
+            comments += `
+            <div> 
             <hr>
-            <p><b> ` + comms[i].user + `  </b>
+            <p><b> ` + comms[i].user + `</b>
             Puntaje: ` + points + `</p>
-            <small><p>` + comms[i].description + ` </p> </small>
+            <small><p>` + comms[i].description + ` </p></small>
             </div>`
           }
           document.getElementById("comment").innerHTML = comments;

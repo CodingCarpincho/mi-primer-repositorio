@@ -52,12 +52,14 @@ function showProductsList(){
                     <img src="` + product.imgSrc + `" alt="` + product.desc + `" class="img-thumbnail">
                 </div>
                 <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
+                <a href="product-info.html">
+                <div class="d-flex w-100 justify-content-between">
                         <h4 class="mb-1">`+ product.name + ` / ` + product.cost + ` ` + product.currency + `</h4>
                         <small class="text-muted">` + product.soldCount + ` vendidos</small>
                     </div>
                  <small class="text-muted">` + product.description + `</small>
                 </div>
+                </a>
             </div>
         </div>
         `
