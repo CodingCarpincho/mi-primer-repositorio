@@ -28,21 +28,136 @@
       <button id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a></button> <!--boton sign out-->
     </div>
   </nav>
-<script>
-var user = localStorage.getItem("user");
-document.getElementById('user').innerHTML=user;
-</script>
-<!--final del campo, esto está en cada pagina a falta de conocimientos para una mejor implementacion-->
+    <script>
+  var user = localStorage.getItem("user");
+  document.getElementById('user').innerHTML=user;
+  </script>
+            <!--final del campo, esto está en cada pagina a falta de conocimientos para una mejor implementacion-->
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div class="row d-flex flex-row>
+    <main role="main">
+      <div class="container mt-5">
+        <div class="text-center p-4">
+          <h2>Descripción del producto</h2>
+          <p class="lead"> Encontrarás aquí toda la información del producto seleccionado. </p>
+          <p class="small alert-warning py-3">
+            <strong>Nota: </strong>por simplicidad, cualquiera sea el producto seleccionado siempre se visualizará el
+            <strong>Chevrolet Onix</strong>.
+          </p>
+        </div>
+        <h3 id="productName"></h3>
+        <hr class="my-3" />
+        <dl>
+          <dt>Precio</dt>
+          <dd>
+            <p>
+              <label id="productMoneda"> </label> <label id="productPrice"> </label>
+            </p>
+          </dd>
+          <dt>Descripción</dt>
+          <dd>
+            <p id="productDescription"></p>
+          </dd>
+
+          <dt>Cantidad de productos vendidos</dt>
+          <dd>
+            <p id="soldCount"></p>
+          </dd>
+
+          <dt>Categoría a la que pertenece el producto</dt>
+          <dd>
+            <a href="category-info.html"> <label id="productCategory"> </label> </a>
+          </dd>
+
+          <dt>Imágenes ilustrativas</dt>
+          <dd>
+            <div class="row text-center text-lg-left pt-2" id="productImages"></div>
+          </dd>
+
+          <dt>Comentarios del producto</dt>
+          <dd>
+            <div id="comment">
+          </div>
+          </dd>
+          <div class="row">
+            <h3>Enviar Comentario</h3>
+          </div>
+            
+            <div class="row">
+            
+            <div class="col-md-6">
+                        <div class="widget-area no-padding blank">
+                        <div class="status-upload">
+                          <form>
+                            <textarea placeholder="Escribe aqui" ></textarea>
+                            Puntos: <select id="puntaje">
+                              <option value=1>1</option>
+                              <option value=2>2</option>
+                              <option value=3>3</option>
+                              <option value=4>4</option>
+                              <option value=5>5</option>
+                      
+                          </select>
+                          <br><br>
+                          Puntaje: <span id="calif"></span>
+                          
+                          <script>
+                              function puntuacion(puntos){
+                                   var estrellas='';
+                                  for(let i = 1; i <= 5; i ++) {
+                                      if (i<=puntos){
+                                      estrellas += '<i class="fas fa-star checked" ></i>'; //icono estrella llena
+                                      }else{
+                                           estrellas += '<i class="far fa-star nada"></i>';//icono contorno estrella
+                                      }
+                                     }
+                                    
+                                       document.getElementById('calif').innerHTML=estrellas;
+                                  };
+                              
+                              document.getElementById('puntaje').addEventListener('change',function(){
+                      
+                                  puntuacion(document.getElementById('puntaje').value);
+                              }) ; //Espero que cambie el valor del select
+                                  
+                                 
+                          </script>
+                            
+                            <br>
+                            <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Enviar</button>
+                          </form>
+                        </div><!-- Status Upload  -->
+                      </div><!-- Widget Area -->
+                    </div>
+                
+            </div>
+
+
+        <div class="container">
+          <div class="row col-12">
+            <dt>Productos relacionados</dt>
+            <dd>
+            <p> Aquí van las imágenes relacionadas al producto según sus identificadores </p>
+            <br><br>
+
+            <div class="row">
+              <div class="list-group" id="cat-list-container">
+              </div>
+            <!--imagen del producto-->
+            <div class="row text-center" id="productImgSrc"></div>
+
+            <!-- nombre del producto-->
+            <p id="prodNameRel"></p>
+
+            <!--moneda y precio-->
+            <p> <label id="prodRMoneda"> </label> <label id="prodRPrecio"> </label> </p>
+            </dd>
+            </dl>
+          </div>
+        </div>
   </div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
