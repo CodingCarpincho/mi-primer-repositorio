@@ -12,10 +12,10 @@ function saveLogin(user, pass) {
     }
 }
 
-function onSignIn(googleUser) {
+/*function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     location.href="login.html"
-}
+}*/
 
 document.addEventListener("DOMContentLoaded", function(e){
 }
