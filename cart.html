@@ -11,7 +11,9 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -61,12 +63,63 @@ document.getElementById('user').innerHTML=user;
 <!--final del campo, esto está en cada pagina a falta de conocimientos para una mejor implementacion-->
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="text-center">
+    <h2>Mi Carrito</h2>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-stripped-light">
+            <thead>
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">Producto</th>
+                <th scope="col">Costo x unidad</th>
+                <th scope="col" class="text-center">Cantidad</th>
+                <th scope="col" class="text-right">Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <!--JSON GOES HERE-->
+            <tbody id="carritoContainer">
+
+            </tbody>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Envio <span id="showShip"></span></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Costo Total <span id="totalCost"></span></td>
+                <td class="text-right"></td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <p>Seleccionar Envio:</p>
+          <select id="shippingOption" class="form-group" onchange="subArticleCost()">
+            <option value="0.25">Envio Bronce (100 días)</option>
+            <option value="0.50">Envio Plata (50 días)</option>
+            <option value="0.75" selected>Envio Oro (5 a 7 días)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+                
+        <button id="pay" class="btn btn-primary">Pagar</button>
+        <button id="delete" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
     </div>
   </div>
   <div id="spinner-wrapper">

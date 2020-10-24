@@ -31,10 +31,6 @@
           <a class="dropdown-item" href="#" id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a>
         </div>
       </div>
-      
-
-      <!--<a class="py-2 d-none d-md-inline-block" id="user" style="color:white;"></a>-->
-      <!--<button id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a></button> --> <!--boton sign out-->
     </div>
   </nav>
 <script>
@@ -141,18 +137,16 @@ document.getElementById('user').innerHTML=user;
                     </div>
                 
             </div>
-
-
         <div class="container">
           <div class="row col-12">
             <dt>Productos relacionados</dt>
             <dd>
-              <div class="row" id="relatedProds">
+            <p> Aquí van las imágenes relacionadas al producto según sus identificadores </p>
+            <br><br>
 
+            <div class="row">
+              <div class="list-group" id="cat-list-container">
               </div>
-              <hr class="my-3">
-            </dd>
-
             <!--imagen del producto-->
             <div class="row text-center" id="productImgSrc"></div>
 
@@ -166,7 +160,7 @@ document.getElementById('user').innerHTML=user;
           </div>
         </div>
       </div>
-    </main> 
+      
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
