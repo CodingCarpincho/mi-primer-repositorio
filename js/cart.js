@@ -33,20 +33,24 @@ function subArticleCost() {
     //esta parte de la funcion toma el costo del articulo y lo multiplica por la cantidad de articulos que el usuario quiere comprar
 
 document.querySelector(".subCostArticulo").innerHTML = subCost;
+document.querySelector("#subCostArticulo2").innerHTML = subCost;
 
-var ship = document.getElementById("shippingOption");
-var shipValue = ship.options[ship.selectedIndex].value;
+var ship = document.getElementById("envio");
+var shipValue = ship.elements["shipOption"].value;
 //tomo la opción de envio seleccionada por el usuario y su valor
 shipPrice = shipValue * subCost;
-document.querySelector("#showShip").innerHTML = shipPrice;
+shipPrice2 = Math.trunc(shipPrice); //Math.trunc(numero) sirve para eliminar todos los decimales de un integer
+document.querySelector("#showShip").innerHTML = shipPrice2;
 articleTotalCost();
 }
 
 function articleTotalCost(){
-    totalCost = shipPrice + subCost;
+    totalCost = shipPrice2 + subCost;
     document.querySelector("#totalCost").innerHTML = totalCost
 }
-
+function paymethodtext(){
+    methodtext = document 
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

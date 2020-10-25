@@ -1,140 +1,386 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.3/examples/album/"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
-    }
-  </style>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
-</head>
-<body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <!--inicio del campo que muestra el nombre de usuario y boton para desloguear-->
-      <div class="dropdown">
-        <button id="user" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="my-dropdown">
-          <a class="dropdown-item active" href="cart.html">Mi carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-          <a class="dropdown-item" href="#" id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a>
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/dropzone.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="site-header sticky-top py-1 bg-dark">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between"
+      >
+        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html"
+          >Categorías</a
+        >
+        <a class="py-2 d-none d-md-inline-block" href="products.html"
+          >Productos</a
+        >
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <!--inicio del campo que muestra el nombre de usuario y boton para desloguear-->
+        <div class="dropdown">
+          <button
+            id="user"
+            class="btn btn-primary dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          ></button>
+          <div class="dropdown-menu" aria-labelledby="my-dropdown">
+            <a class="dropdown-item active" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+            <a
+              class="dropdown-item"
+              href="#"
+              id="logout"
+              onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';"
+              >Sign out</a
+            >
+          </div>
+        </div>
+
+        <!--<a class="py-2 d-none d-md-inline-block" id="user" style="color:white;"></a>-->
+        <!--<button id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a></button> -->
+        <!--boton sign out-->
+      </div>
+    </nav>
+    <script>
+      var user = localStorage.getItem("user");
+      document.getElementById("user").innerHTML = user;
+    </script>
+    <!--final del campo, esto está en cada pagina a falta de conocimientos para una mejor implementacion-->
+    <div class="text-center">
+      <h2>Mi Carrito</h2>
+    </div>
+    <div class="container">
+      <div class="row row-content justify-content-center">
+        <div class="col-12 align-items-center">
+          <div class="table-responsive">
+            <table class="table table-stripped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">&nbsp;</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Costo x unidad</th>
+                  <th scope="col" class="text-center">Cantidad</th>
+                  <th scope="col" class="text-right">Subtotal</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <!--JSON GOES HERE-->
+              <tbody id="carritoContainer"></tbody>
+            </table>
+          </div>
         </div>
       </div>
-      
-
-      <!--<a class="py-2 d-none d-md-inline-block" id="user" style="color:white;"></a>-->
-      <!--<button id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a></button> --> <!--boton sign out-->
     </div>
-  </nav>
-<script>
-var user = localStorage.getItem("user");
-document.getElementById('user').innerHTML=user;
-</script>
-<!--final del campo, esto está en cada pagina a falta de conocimientos para una mejor implementacion-->
+    <div class="container">
+      <div class="row row-content align-items-center">
+        <div class="col-12 col-sm-4">
+          <div class="card">
+            <h3 class="card-header">Seleccionar Envio:</h3>
+            <div class="card-body">
+              <div class="input-group">
+                <form id="envio">
+                  <div class="custom-control custom-radio">
+                    <input
+                      class="custom-control-input"
+                      type="radio"
+                      name="shipOption"
+                      id="premium"
+                      value="0.15"
+                      checked=""
+                      required=""
+                    />
+                    <label class="custom-control-label" for="premium"
+                      >Envío Premium (2 a 5 dias)</label
+                    >
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input
+                      class="custom-control-input"
+                      type="radio"
+                      name="shipOption"
+                      id="express"
+                      value="0.07"
+                      checked=""
+                      required=""
+                    />
+                    <label class="custom-control-label" for="express"
+                      >Envío Express (5 a 8 dias)</label
+                    >
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input
+                      class="custom-control-input"
+                      type="radio"
+                      name="shipOption"
+                      id="standard"
+                      value="0.05"
+                      checked=""
+                      required=""
+                    />
+                    <label class="custom-control-label" for="standard"
+                      >Envío Standard (12 a 15 dias)</label
+                    >
+                  </div>
+                </form>
+              </div>
+              <!-- <select id="shippingOption" class="form-group" onchange="subArticleCost()">
+              <option type="radio" value="0.25">Envio Bronce (100 días)</option>
+              <option value="0.50">Envio Plata (50 días)</option>
+              <option value="0.75" selected>Envio Oro (5 a 7 días)</option>
+            </select> -->
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h3>Costos</h3>
+          <ul class="list-group mb-3">
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0">Subtotal</h6>
+                <small class="text-muted">De los productos</small>
+              </div>
+              <span class="text-muted" id="subCostArticulo2">-</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0">Envio</h6>
+                <small class="text-muted">Según el tipo de envio</small>
+              </div>
+              <span class="text-muted" id="showShip">-</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total ($)</span>
+              <strong id="totalCost">-</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </nav>
-  <div class="text-center">
-    <h2>Mi Carrito</h2>
-  </div>
-  <div class="container">
+    <!--form de envio-->
+    <form class="container" novalidate="" id="form1">
+      <h3>Datos de envio</h3>
+      <div class="row">
+        <div class="col-8">
+          <div class="form-group">
+            <label for="street">Calle</label>
+            <input type="text" name="street" class="form-control" required />
+            <div class="valid-feedback">Good!</div>
+            <div class="invalid-feedback">Ingresar Calle</div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="streetnumber">Numero</label>
+            <input
+              type="number"
+              name="streetnumber"
+              class="form-control"
+              required
+            />
+            <div class="valid-feedback">Good!</div>
+            <div class="invalid-feedback">Ingresar Numero</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="streetcorner">Esquina</label>
+        <input type="text" name="streetcorner" class="form-control" />
+        <div class="valid-feedback">Good!</div>
+        <div class="invalid-feedback">Ingresar Esquina</div>
+      </div>
+      <div class="form-group">
+        <label for="departamento">Departamento</label>
+        <select name="departamento" id="departamento">
+          <option value="Artigas">Artigas</option>
+          <option value="Durazno">Durazno</option>
+          <option value="Canelones">Canelones</option>
+          <option value="Cerro Largo">Cerro Largo</option>
+          <option value="Colonia">Colonia</option>
+          <option value="Flores">Flores</option>
+          <option value="Florida">Florida</option>
+          <option value="Lavalleja">Lavalleja</option>
+          <option value="Maldonado">Maldonado</option>
+          <option value="Montevideo">Montevideo</option>
+          <option value="Paysandu">Paysandú</option>
+          <option value="Rio Negro">Río Negro</option>
+          <option value="Rivera">Rivera</option>
+          <option value="Rocha">Rocha</option>
+          <option value="Salto">Salto</option>
+          <option value="San Jose">San José</option>
+          <option value="Soriano">Soriano</option>
+          <option value="Tacuarembo">Tacuarembó</option>
+          <option value="Treinta y Tres">Treinta y Tres</option>
+        </select>
+      </div>
+      <hr class="mb-4">
+    <h5 class="mb-3">Forma de pago</h5>
+    <span id="forma de pago">-</span>
     <div class="row">
-      <div class="col-12">
-        <div class="table-responsive">
-          <table class="table table-stripped-light">
-            <thead>
-              <tr>
-                <th scope="col"> </th>
-                <th scope="col">Producto</th>
-                <th scope="col">Costo x unidad</th>
-                <th scope="col" class="text-center">Cantidad</th>
-                <th scope="col" class="text-right">Subtotal</th>
-                <th></th>
-              </tr>
-            </thead>
-            <!--JSON GOES HERE-->
-            <tbody id="carritoContainer">
+      <button class="m-1 btn btn-link" type="button" data-toggle="modal" data-target="#my-modal">Seleccionar</button>
+    </div>
 
-            </tbody>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Envio <span id="showShip"></span></td>
-                <td class="text-right"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Costo Total <span id="totalCost"></span></td>
-                <td class="text-right"></td>
-              </tr>
-            </tbody>
-
-          </table>
+    <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="my-modal-title">Método de pago</h5>
+            <button class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="payoption" id="credit" checked="" onclick="document.getElementById('debittext').disabled = true; 
+              document.getElementById('cardnum').disabled = false; document.getElementById('cvd').disabled = false; document.getElementById('vencimiento').disabled = false;">
+              <!--Esta solución es tan elegante como un piñazo en la cara, al clickear en el radio simplemente toma las id's de los campos que necesito y cambia el valor de disabled por true si lo quiero deshabilitar y false si lo quiero habilitar-->
+              <!--luego buscaré una solución más limpia, por ahora lo dejaré así para la entrega-->
+              <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
+            </div>
+              <hr class="mb-4">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="form-group">
+                      <label for="cardnum">Número de tarjeta</label>
+                      <input type="tel" name="payoption" id="cardnum" class="form-control" required>
+                      <div class="invalid-feedback">Ingresar numero de tarjeta.</div>
+                      <!-- <div class="valid feedback">Good!</div> -->
+                    </div>
+                  </div>
+                  <div class="col-4">
+                      <div class="form-group">
+                        <label for="cvd">CVD</label>
+                        <input type="tel" name="payoption" id="cvd" class="form-control" required>
+                        <div class="invalid-feedback">Ingresar CVD.</div>
+                        <!-- <div class="valid feedback">Good!</div> -->
+                      </div>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="form-group">
+                    <label for="vencimiento">Vencimiento</label>
+                    <input type="month" name="payoption2" id="vencimiento" class="form-control" required>
+                    <div class="invalid-feedback">Ingresar fecha de vencimiento.</div>
+                    <div class="valid-feedback">Good!</div>
+                  </div>
+                </div>
+            <hr class="mb-5">
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="payoption" id="debit" checked="" onclick="document.getElementById('debittext').disabled = false; 
+              document.getElementById('cardnum').disabled = true; document.getElementById('cvd').disabled = true; document.getElementById('vencimiento').disabled = true;">
+              <label class="custom-control-label" for="debit">Transferencia bancaria</label>
+            </div>
+            <hr class="mb-1">
+            <div class="form-group">
+              <label for="debittext">Número de cuenta</label>
+              <input type="number" name="debittext" class="form-control" id="debittext" required>
+              <div class="invalid-feedback">Ingresar número de cuenta</div>
+              <div class="valid-feedback">You're pretty good!</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" aria-label="Close">Cerrar</button>
+          </div>
         </div>
       </div>
-      <div class="container">
-        <div class="row justify-content-center">
-          <p>Seleccionar Envio:</p>
-          <select id="shippingOption" class="form-group" onchange="subArticleCost()">
-            <option value="0.25">Envio Bronce (100 días)</option>
-            <option value="0.50">Envio Plata (50 días)</option>
-            <option value="0.75" selected>Envio Oro (5 a 7 días)</option>
-          </select>
-        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">
+      Finalizar Compra
+    </button>
+    </form>
+    <!--fin de form-->
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
-  </div>
-                
-        <button id="pay" class="btn btn-primary">Pagar</button>
-        <button id="delete" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-    </div>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-</body>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 
+    <!--script para validar campos, solo chequea que el campo tenga algo ingresado si el input tiene la propiedad required, si no da válido por defecto-->
+    <script>
+      (function () {
+        "use strict";
+        window.addEventListener(
+          "load",
+          function () {
+            // fetch all the forms we want to apply custom style
+            var inputs = document.getElementsByClassName("form-control");
+
+            // loop over each input and watch blur event
+            var validation = Array.prototype.filter.call(inputs, function (
+              input
+            ) {
+              input.addEventListener(
+                "blur",
+                function (event) {
+                  // reset
+                  input.classList.remove("is-invalid");
+                  input.classList.remove("is-valid");
+
+                  if (input.checkValidity() === false) {
+                    input.classList.add("is-invalid");
+                  } else {
+                    input.classList.add("is-valid");
+                  }
+                },
+                false
+              );
+            });
+          },
+          false
+        );
+      })();
+    </script>
+  </body>
 </html>
