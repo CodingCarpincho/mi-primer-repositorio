@@ -17,26 +17,38 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <!--inicio del campo que muestra el nombre de usuario y boton para desloguear-->
-      <div class="dropdown">
-        <button id="user" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="my-dropdown">
-          <a class="dropdown-item active" href="cart.html">Mi carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-          <a class="dropdown-item" href="#" id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a>
-        </div>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand" href="login.html"><img src="./img/login-removebg.png" height="40"></a>
+        <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Inicio</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="categories.html">Categorías</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="products.html">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="sell.html">Vender</a>
+              </li>
+              <div class="dropdown">
+                <button id="user" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="dropdown-menu" aria-labelledby="my-dropdown">
+                  <a class="dropdown-item active" href="cart.html">Mi carrito</a>
+                  <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                  <a class="dropdown-item" href="index.html" id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a>
+                </div>
+              </div>
+            </ul>
+          </div>
       </div>
-      
-
-      <!--<a class="py-2 d-none d-md-inline-block" id="user" style="color:white;"></a>-->
-      <!--<button id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a></button> --> <!--boton sign out-->
-    </div>
+    </div> 
   </nav>
 <script>
 var user = localStorage.getItem("user");

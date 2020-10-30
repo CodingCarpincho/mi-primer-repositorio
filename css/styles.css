@@ -198,3 +198,36 @@ a.custom-card:hover {
   width: 450px;
   margin: auto;
 }
+
+.card-producto .image-wrap {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  text-align: center;
+}
+.card-producto .image-wrap img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+.card-producto .info-wrap {
+  overflow: hidden;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+.card-producto .bottom-wrap {
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.card-producto .vendidos { 
+  margin-right:10px;
+  color: grey;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.card-producto .price {
+  color: #85bb65
+}

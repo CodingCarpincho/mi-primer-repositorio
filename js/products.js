@@ -46,22 +46,23 @@ function showProductsList(){
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.desc + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                <a href="product-info.html">
-                <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ product.name + ` / ` + product.cost + ` ` + product.currency + `</h4>
-                        <small class="text-muted">` + product.soldCount + ` vendidos</small>
-                    </div>
-                 <small class="text-muted">` + product.description + `</small>
-                </div>
-                </a>
+        <div class="col col-md-4 col-lg-3">
+        <figure class="card card-producto">
+            <div class="image-wrap">
+                <img src="` + product.imgSrc + `" alt="` + product.desc + `">
             </div>
-        </div>
+                <figcaption class="info-wrap">
+                    <a href="product-info.html">
+                        <h4 class="title">`+ product.name + /* ` / ` + product.cost + ` ` + product.currency + */ `</h4>
+                    </a>
+                        <p class="desc">` + product.description + `</p>
+                        <div class="vendidos">` + product.soldCount + `vendidos </div>
+                </figcaption>
+                <div class="bottom-wrap">
+                    <span class="price"> ` + product.cost + ` ` + product.currency + ` </span>
+                </div>
+            </div>
+        </figure>
         `
     }
         //despues de un rato al fin le di al clavo, resulta que los `` estan para algo, despues es solo
