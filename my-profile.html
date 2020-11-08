@@ -59,6 +59,7 @@
                 <div class="dropdown-menu" aria-labelledby="my-dropdown">
                   <a class="dropdown-item" href="cart.html">Mi carrito</a>
                   <a class="dropdown-item active" href="#">Mi Perfil</a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="index.html" id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a>
                 </div>
               </div>
@@ -72,15 +73,91 @@ var user = localStorage.getItem("user");
 document.getElementById('user').innerHTML=user;
 </script>
 <!--final del campo, esto está en cada pagina a falta de conocimientos para una mejor implementacion-->
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+<h2 class="text-center">Mi Usuario</h2>
+<hr>
+<div class="container">
+  <div class="row row-content">
+    <div class="col-4">
+        <h2>Input</h2>  
+        <form class="input-group" id="img2b64">
+            <input 
+                type="url" 
+                name="url" 
+                class="form-control"
+                placeholder="Insert an IMAGE-URL"
+                id="imgurl" 
+                value=""  
+                required>
+            <span class="input-group-btn">
+                <input 
+                    type="submit" 
+                    class="btn btn-default"
+                    id="btn64">
+            </span>
+        </form>
+                    
+        <hr>
+            
+        <h2>Output</h2>        
+        <div class="output">
+            <textarea class="form-control" id="output64"></textarea><br>
+            <br><br>
+            <img><br>
+        </div>
+      </div>
+      <div class="col-8">
+        <form class="container" method="" novalidate="" id="formregistro">
+          <div class="row">
+            <div class="col-10 col-sm-6">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="name" name="nombre" class="form-control" required/>
+                <div class="valid-feedback">Good!</div>
+                <div class="invalid-feedback">Ingresar Nombre</div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-6">
+              <div class="form-group">
+                <label for="surname">Apellido</label>
+                <input type="text" id="surname" name="surname" class="form-control" required/>
+                <div class="valid-feedback">Good!</div>
+                <div class="invalid-feedback">Ingresar Apellido</div>
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="form-group">
+                <label for="age">Edad</label>
+                <input type="number" name="age" id="age" class="form-control" required/>
+                <div class="valid-feedback">Good!</div>
+                <div class="invalid-feedback">Ingresar Edad</div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-8">
+              <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" id="email" name="email" class="form-control" required/>
+                <div class="valid-feedback">Good!</div>
+                <div class="invalid-feedback">Ingresar E-Mail</div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-4">
+              <div class="form-group">
+                <label for="contel">Teléfono de contacto</label>
+                <input type="tel" id="contel" name="contel" class="form-control" required/>
+                <div class="valid-feedback">Good!</div>
+                <div class="invalid-feedback">Ingresar Teléfono</div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" id="save" onclick="guardarUser();"> Guardar </button>
+          <button type="button" class="btn btn-danger btn-lg" id="deleteForm" onclick="borrarForm();">Borrar</button>
+            
+        </form>
+      </div>
     </div>
   </div>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
@@ -106,6 +183,7 @@ document.getElementById('user').innerHTML=user;
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/image-to-session.js"></script>
 </body>
 
 </html>

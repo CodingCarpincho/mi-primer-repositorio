@@ -67,6 +67,7 @@
                   <div class="dropdown-menu" aria-labelledby="my-dropdown">
                     <a class="dropdown-item active" href="#">Mi carrito</a>
                     <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.html" id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a>
                   </div>
                 </div>
@@ -111,7 +112,7 @@
           <div class="card">
             <h3 class="card-header">Seleccionar Envio:</h3>
             <div class="card-body">
-              <div class="input-group">
+              <div class="input-group" onchange="subArticleCost();">
                 <form id="envio">
                   <div class="custom-control custom-radio">
                     <input
@@ -222,7 +223,7 @@
       </div>
       <div class="form-group">
         <label for="streetcorner">Esquina</label>
-        <input type="text" name="streetcorner" class="form-control" />
+        <input type="text" name="streetcorner" class="form-control" required/>
         <div class="valid-feedback">Good!</div>
         <div class="invalid-feedback">Ingresar Esquina</div>
       </div>

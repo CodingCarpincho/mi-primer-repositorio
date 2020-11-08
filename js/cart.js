@@ -39,7 +39,7 @@ var ship = document.getElementById("envio");
 var shipValue = ship.elements["shipOption"].value;
 //tomo la opción de envio seleccionada por el usuario y su valor
 shipPrice = shipValue * subCost;
-shipPrice2 = Math.trunc(shipPrice); //Math.trunc(numero) sirve para eliminar todos los decimales de un integer
+shipPrice2 = Math.trunc(shipPrice); //la función Math.trunc(number) sirve para eliminar todos los decimales de un integer
 document.querySelector("#showShip").innerHTML = shipPrice2;
 articleTotalCost();
 }
