@@ -68,7 +68,7 @@
                     <a class="dropdown-item active" href="#">Mi carrito</a>
                     <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.html" id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html';">Sign out</a>
+                    <a class="dropdown-item" href="index.html" id="logout" onclick="localStorage.clear(); alert('User disconected'); location.href='index.html'; signOut();">Sign out</a>
                   </div>
                 </div>
               </ul>
@@ -196,7 +196,7 @@
       </div>
     </div>
     <!--form de envio-->
-    <form class="container" novalidate="" id="form1">
+    <form method="post" action="http://localhost:3000/buy" class="container"  novalidate="" id="form1">
       <h3>Datos de envio</h3>
       <div class="row">
         <div class="col-8">
@@ -323,7 +323,7 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary btn-lg">
+    <input type="submit" value="submit" class="btn btn-primary btn-lg">
       Finalizar Compra
     </button>
     </form>
